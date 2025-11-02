@@ -1,7 +1,6 @@
 # Nowcast ID ⛈️
 
 ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Vercel Deploy](https://vercel.com/button)
 
 Dashboard interaktif *real-time* untuk memvisualisasikan peringatan cuaca aktif (Nowcast) dari **BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)**. Proyek ini mem-parsing data live XML/CAP untuk menampilkan area peringatan berbasis poligon yang presisi di atas peta, memberikan pandangan langsung dan jelas terhadap potensi bahaya cuaca di seluruh Indonesia.
 
