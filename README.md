@@ -5,7 +5,6 @@
 Dashboard interaktif *real-time* untuk memvisualisasikan peringatan cuaca aktif (Nowcast) dari **BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)**. Proyek ini mem-parsing data live XML/CAP untuk menampilkan area peringatan berbasis poligon yang presisi di atas peta, memberikan pandangan langsung dan jelas terhadap potensi bahaya cuaca di seluruh Indonesia.
 
 ![Screenshot Nowcast ID Dashboard](public/screenshot.png)
-*(PENTING: Ambil screenshot dashboard Anda, simpan sebagai `screenshot.png` di dalam folder `public/`, lalu pastikan path-nya benar seperti di atas)*
 
 ---
 
