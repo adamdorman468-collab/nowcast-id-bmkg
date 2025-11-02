@@ -24,6 +24,8 @@ Proyek ini dibangun dengan asistensi intensif dari *tool* AI Code Generation (se
 * **Refactoring:** Me-*refactor* kode dari *prototype* awal menjadi kode yang bersih, modular, dan profesional (misalnya, memisahkan `Layout`, `Context`, dan `Map`).
 * **Penulisan Dokumentasi:** Membantu menyusun dokumentasi teknis ini (`README.md`).
 
+**[➡️ Klik di sini untuk melihat Slide Presentasi Proyek (PDF/Google Slides)](https://www.canva.com/design/DAG3jO6JL-M/PvH_tUBKrRoYqL6y7AITFA/edit?ui=eyJBIjp7fX0)**
+
 ---
 
 ## 🚀 Demo Live
