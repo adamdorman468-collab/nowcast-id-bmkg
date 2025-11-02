@@ -1,0 +1,598 @@
+/* styles/globals.css */
+
+/* 1. Variabel Desain yang Disempurnakan */
+:root {
+  /* Mode Terang */
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --card-border: #e9ecef;
+  --card-shadow: rgba(0, 0, 0, 0.05);
+  --header-footer-bg: #ffffff;
+  --header-border: #e9ecef;
+  --link-color: #0070f3;
+  --warning-title-color: #d9534f; /* Merah Peringatan */
+  --warning-border-color: #d9534f;
+  --warning-text: #495057;
+  --code-bg: #e9ecef;
+}
+
+[data-theme='dark'] {
+  /* Mode Gelap */
+  --bg-color: #121212;
+  --text-color: #e9ecef;
+  --card-bg: #1e1e1e;
+  --card-border: #343a40;
+  --card-shadow: rgba(255, 255, 255, 0.05);
+  --header-footer-bg: #1e1e1e;
+  --header-border: #343a40;
+  --link-color: #58a6ff;
+  --warning-title-color: #ff8a80; /* Merah Peringatan (lebih cerah) */
+  --warning-border-color: #ff8a80;
+  --warning-text: #adb5bd;
+  --code-bg: #2b2b2b;
+}
+
+/* 2. Reset & Pengaturan Dasar Global */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* 3. Struktur Layout (Navbar, Main, Footer) */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Padding horizontal */
+}
+
+.navbar {
+  background: var(--header-footer-bg);
+  border-bottom: 1px solid var(--header-border);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px); /* Efek blur "keren" */
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Jarak antara Judul dan Link 'Tentang' */
+}
+
+.navbar-about-link {
+  font-size: 0.9rem;
+  color: var(--warning-text); /* Warna lebih soft agar tidak menyaingi judul */
+  font-weight: 500;
+  text-decoration: none;
+  padding-bottom: 2px;
+  
+  /* Efek hover keren */
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-about-link:hover {
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom-color: var(--link-color); /* Garis bawah muncul saat hover */
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+}
+.brand-title:hover {
+  text-decoration: none;
+}
+
+main {
+  padding: 2.5rem 0; /* Padding vertikal untuk konten */
+}
+
+.footer {
+  background: var(--header-footer-bg);
+  border-top: 1px solid var(--header-border);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--warning-text); /* Gunakan warna teks yang lebih lembut */
+}
+
+/* 4. Tombol Mode Gelap (Sekarang di dalam Navbar) */
+.theme-toggle-button {
+  /* Hapus 'position: fixed' */
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  z-index: 1; /* Tidak perlu z-index tinggi lagi */
+  transition: background-color 0.2s ease;
+}
+.theme-toggle-button:hover {
+  background: var(--bg-color);
+}
+
+/* 5. Desain Kartu Peringatan (Homepage) - BARU */
+.warning-list {
+  list-style: none;
+  padding: 0;
+}
+
+.warning-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  /* Desain "callout" baru dengan border kiri */
+  border-left-width: 5px;
+  border-left-color: var(--warning-border-color);
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: hidden; /* Penting untuk border-radius */
+}
+
+.warning-item:hover {
+  box-shadow: 0 8px 20px var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+.warning-item a {
+  display: block;
+  padding: 1.5rem 2rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.warning-item h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color); /* Judul tidak lagi merah, border sudah cukup */
+}
+
+.warning-item p {
+  margin: 0.5rem 0 0;
+  color: var(--warning-text);
+  font-size: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--warning-text);
+  opacity: 0.8;
+}
+
+/* 6. Desain Halaman Detail - BARU */
+.detail-container {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.detail-container h1 {
+  color: var(--warning-title-color); /* Judul utama tetap merah */
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Tata letak Grid untuk Info */
+.detail-info {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* Kolom label, Kolom isi */
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid var(--card-border);
+  padding-top: 1.5rem;
+}
+
+.detail-info > strong {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.detail-info > span {
+  color: var(--warning-text);
+  word-break: break-word;
+}
+
+.detail-info > span code {
+  background: var(--code-bg);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* 7. Link & Peta */
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 450px;
+  border-radius: 12px; /* Radius lebih besar */
+  border: 1px solid var(--card-border);
+  z-index: 1;
+}
+
+/* 8. Utility (Loading & Error) */
+.status-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--warning-text);
+  font-size: 1.1rem;
+}
+.error-message {
+  color: var(--warning-title-color);
+}
+
+/* Layout Utama Dashboard */
+.dashboard-layout {
+  display: flex;
+  height: 100%; /* Akan mengisi wrapper barunya */
+  width: 100%;
+}
+
+/* Sidebar (Kolom Kiri) */
+.dashboard-sidebar {
+  width: 400px;
+  background: var(--card-bg);
+  border-right: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+}
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.sidebar-header p {
+  margin: 0.25rem 0 0;
+  color: var(--warning-text);
+  font-size: 1rem;
+}
+
+.sidebar-list {
+  overflow-y: auto;
+  flex-grow: 1; /* Mengisi sisa ruang */
+  padding: 0.5rem;
+}
+
+.sidebar-item {
+  padding: 1rem 1.25rem;
+  margin: 0.5rem;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border-left-width: 5px;
+  border-left-color: var(--warning-border-color);
+}
+.sidebar-item:hover {
+  background: var(--bg-color);
+}
+.sidebar-item.selected {
+  background: var(--bg-color);
+  border-color: var(--link-color);
+  border-left-color: var(--link-color);
+  box-shadow: 0 4px 12px var(--card-shadow);
+}
+.sidebar-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+.sidebar-item p {
+  font-size: 0.9rem;
+  color: var(--warning-text);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar-item-footer {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--warning-text);
+  opacity: 0.9;
+}
+
+
+/* Peta (Kolom Kanan) */
+.dashboard-map-container {
+  flex-grow: 1; /* Peta mengisi sisa ruang */
+  height: 100%;
+  position: relative; /* Penting untuk info box */
+}
+
+/* Container Peta harus full height */
+.leaflet-container {
+  width: 100%;
+  height: 100%; /* Buat peta mengisi 100% container */
+  z-index: 1;
+}
+
+/* Info Box di atas Peta */
+.map-info-box {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 350px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  max-height: 80%;
+  overflow-y: auto;
+}
+.map-info-box h3 {
+  margin: 0 0 1rem;
+  color: var(--warning-title-color);
+}
+.map-info-box p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  color: var(--warning-text);
+}
+.map-info-box p strong {
+  color: var(--text-color);
+}
+.map-info-box a {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.map-info-box button {
+  /* Tombol tutup */
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--warning-text);
+  padding: 0.25rem;
+  line-height: 1;
+}
+.map-info-box button:after {
+  content: '×'; /* Tanda silang */
+}
+.map-info-box button:hover {
+  color: var(--text-color);
+}
+
+
+/* Perbaikan Footer */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-content p {
+  margin: 0;
+}
+.attribution {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--warning-text);
+}
+
+/* Perbaikan Layout untuk _app.js */
+/* Ini memastikan footer tidak menimpa konten */
+/* Kita harus membungkus <Layout> di _app.js dengan div */
+/* ... Tapi kita tidak bisa. Jadi kita atur <body> */
+
+/* Kita harus ubah 'main' agar tidak dipakai lagi */
+/* Dan hapus padding dari container di _app.js */
+.navbar {
+  height: 60px; /* Tinggi tetap */
+}
+.footer {
+  height: 62px; /* Tinggi tetap */
+  border-top: 1px solid var(--header-border);
+}
+
+/* === TAMBAHAN CSS UNTUK LAYOUT HALAMAN === */
+
+/* Wrapper untuk Halaman Dashboard agar full-height */
+.dashboard-page-wrapper {
+  /* 100vh dikurangi tinggi navbar (60px) dan footer (62px) */
+  height: calc(100vh - 122px);
+  display: flex;
+}
+
+/* Wrapper untuk Halaman Statis (seperti 'Tentang') */
+.static-page-container {
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+  /* Halaman ini akan otomatis bisa di-scroll jika kontennya panjang */
+}
+
+/* === STYLE UNTUK HALAMAN 'TENTANG' === */
+.about-page-container {
+  max-width: 800px; /* Buat teks lebih mudah dibaca */
+  margin: 0 auto;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.about-page-container h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+.about-page-container .subtitle {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: var(--warning-text);
+}
+
+.about-page-container section {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 1.5rem;
+}
+.about-page-container section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.about-page-container h2 {
+  font-size: 1.5rem;
+  color: var(--link-color);
+  border-bottom: 2px solid var(--link-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.about-page-container p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.about-page-container ul {
+  padding-left: 20px;
+}
+.about-page-container li {
+  margin-bottom: 0.5rem;
+}
+
+.developer-info p {
+  margin: 0.25rem 0;
+}
+
+.back-link-about {
+  display: inline-block;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+/* === STYLE FOOTER BARU === */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Jarak antar item */
+}
+.footer-links p {
+  margin: 0;
+}
+
+/* === TAMBAHAN CSS UNTUK FOTO & LINK DI 'TENTANG' === */
+
+.developer-profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Jarak antara foto dan teks */
+  flex-wrap: wrap; /* Jika layar kecil, akan tumpuk ke bawah */
+}
+
+.developer-photo {
+  flex-shrink: 0; /* Mencegah foto menyusut */
+}
+
+.developer-photo .profile-pic {
+  border-radius: 50%; /* Membuat foto jadi bulat */
+  border: 4px solid var(--card-border);
+  object-fit: cover; /* Memastikan foto tidak penyok */
+  background-color: var(--card-border); /* Warna fallback jika foto gagal load */
+}
+
+.developer-info-text {
+  flex-grow: 1;
+}
+
+.developer-info-text p {
+  margin: 0.25rem 0;
+  color: var(--text-color);
+}
+
+.developer-links {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Jarak antar link */
+}
+
+.developer-links a {
+  font-weight: 600;
+  color: var(--link-color);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--card-border);
+  transition: all 0.2s ease;
+}
+
+.developer-links a:hover {
+  text-decoration: none;
+  background-color: var(--link-color);
+  color: var(--card-bg);
+  border-color: var(--link-color);
+}
+
+.developer-links span {
+  color: var(--warning-text); /* Warna pemisah '|' */
+  font-size: 1rem;
+}
