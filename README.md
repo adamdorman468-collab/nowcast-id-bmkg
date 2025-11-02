@@ -82,9 +82,39 @@ Aplikasi ini bergantung penuh pada data publik resmi (Open Data) yang disediakan
 ---
 
 ## 📁 Struktur Proyek
+nowcast-id/
 
-Struktur folder ini dirancang agar rapi, profesional, dan skalabel, sesuai dengan *best practice* Next.js:
-nowcast-id/ ├── components/ # Komponen React (Layout, Peta, Tombol Tema) ├── context/ # React Context (ThemeContext.js) ├── pages/ # Halaman & Rute Aplikasi │ ├── api/ # Backend API Serverless │ │ ├── dashboard-data.js # (Mengambil & mem-parsing semua data BMKG) │ │ └── ... │ ├── _app.js # Layout global aplikasi (Inject CSS, Context) │ ├── index.js # Halaman Dashboard utama (Peta + Sidebar) │ └── tentang.js # Halaman statis 'Tentang' ├── public/ # Aset statis (favicon, foto profil, screenshot.png) ├── styles/ # CSS Global (globals.css) ├── .gitignore # File yang diabaikan Git (node_modules, .next) ├── LICENSE # Lisensi MIT ├── next.config.mjs # Konfigurasi Next.js ├── package.json # Daftar dependensi & skrip (npm) └── README.md # Dokumentasi ini
+├── components/ # Komponen React (Layout, Peta, Tombol Tema)
+
+├── context/ # React Context (ThemeContext.js)
+
+├── pages/ # Halaman & Rute Aplikasi
+
+│ ├── api/ # Backend API Serverless
+
+│ │ ├── dashboard-data.js # (Mengambil & mem-parsing semua data BMKG)
+
+│ │ └── ...
+
+│ ├── _app.js # Layout global aplikasi (Inject CSS, Context)
+
+│ ├── index.js # Halaman Dashboard utama (Peta + Sidebar)
+
+│ └── tentang.js # Halaman statis 'Tentang'
+
+├── public/ # Aset statis (favicon, foto profil, screenshot.png)
+
+├── styles/ # CSS Global (globals.css)
+
+├── .gitignore # File yang diabaikan Git (node_modules, .next)
+
+├── LICENSE # Lisensi MIT
+
+├── next.config.mjs # Konfigurasi Next.js
+
+├── package.json # Daftar dependensi & skrip (npm)
+
+└── README.md # Dokumentasi ini
 
 ## ⚙️ Menjalankan Secara Lokal (Getting Started)
 
