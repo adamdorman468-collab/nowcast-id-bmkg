@@ -30,9 +30,7 @@ Proyek ini dibangun dengan asistensi intensif dari *tool* AI Code Generation (se
 
 ## 🚀 Demo Live
 
-### **[>> Klik di sini untuk mengunjungi Dashboard Live <<](https://nowcast-id.vercel.app)**
-
-*(Ganti `nowcast-id.vercel.app` dengan URL Vercel Anda yang sebenarnya setelah deploy)*
+### **[>> Klik di sini untuk mengunjungi Dashboard Live <<](https://nowcast-id-bmkg.vercel.app)** 
 
 ---
 
